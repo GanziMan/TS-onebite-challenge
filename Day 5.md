@@ -133,3 +133,52 @@ const는 재할당이 불가능하므로 리터럴 타입(고정값) 으로 추�
 | 유니언 타입 (\`     | \`)                                    | 여러 타입 중 하나만 만족하면 됨                  | OR 조건 |
 | 인터섹션 타입 (`&`) | 여러 타입 모두 만족해야 함             | AND 조건                                         |         |
 | 타입 추론           | 타입을 명시하지 않아도 자동으로 추론됨 | `const`는 리터럴, `let`은 일반 타입              |         |
+
+### Quiz 1.
+
+```
+let a = 10;
+const b = 20;
+const c = [1, 2];
+const d = [1, "hello", true];
+const e = [1, 2, 3] as const;
+
+/* [Quiz] 변수 a의 타입은 무엇으로 추론될까요? */
+type A = number;
+
+/* [Quiz] 변수 b의 타입은 무엇으로 추론될까요? */
+type B = 20
+
+/* [Quiz] 변수 c의 타입은 무엇으로 추론될까요? */
+type C = number[]
+
+/* [Quiz] 변수 d의 타입은 무엇으로 추론될까요? */
+type D = (number | string| boolean)[]
+
+/* [Quiz] 변수 e의 타입은 무엇으로 추론될까요? */
+type E = [1,2,3]
+```
+
+### Quiz 2.
+
+```
+다음 요구사항을 만족하는 Animal, DogCat(개냥이) 타입을 완성하세요
+
+Animal 타입은 Dog 타입일 수도 Cat 타입일 수도 있습니다.
+DogCat 타입은 Dog이자 Cat입니다.
+type Dog = {
+  name: string;
+  color: string;
+};
+
+type Cat = {
+  name: string;
+  age: number;
+};
+
+type Animal = never;
+type DogCat = never;
+
+type Animal = Dog | Cat;
+type DogCat = Dog & Cat;
+```
