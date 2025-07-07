@@ -216,7 +216,6 @@ class Pokemon {
     this.skill = skill;
   }
 }
-
 /* [Test] 여기부터는 정답을 체크하기 위한 용도로 수정하지 않습니다 */
 const pikachu = new Pokemon("피카츄", "백만볼트", "전기");
 pikachu.getName();
